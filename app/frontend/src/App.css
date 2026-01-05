@@ -1,0 +1,385 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.page {
+    min-height: 100vh;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* background image is applied via inline style in App.js (imported asset) */
+    /* gradient overlays for contrast */
+    background-color: #1f0b2b;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    color: #fff;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 20px !important;
+    /* glass effect: semi-transparent, blurred backdrop and soft border */
+    background: rgba(255, 255, 255, 0.06) !important;
+    -webkit-backdrop-filter: blur(8px) saturate(120%);
+    backdrop-filter: blur(8px) saturate(120%);
+    border: 1px solid rgba(255,255,255,0.12) !important;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45) !important;
+}
+
+/* subtle floating animation for the card */
+.container {
+    transform: translateY(0);
+    animation: floatCard 6s ease-in-out infinite;
+}
+
+@keyframes floatCard {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Header */
+.header {
+    margin-bottom: 30px;
+}
+
+.heading {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.45);
+}
+
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.stat-chip {
+    font-weight: 600 !important;
+    font-size: 0.9rem !important;
+    padding: 20px 15px !important;
+}
+
+.stat-chip.total {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    color: white !important;
+}
+
+.stat-chip.completed {
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%) !important;
+    color: white !important;
+}
+
+.stat-chip.pending {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%) !important;
+    color: white !important;
+}
+
+/* Form Container */
+.formContainer {
+    padding: 20px !important;
+    margin-bottom: 25px !important;
+    border-radius: 15px !important;
+    background: rgba(255,255,255,0.04) !important;
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255,255,255,0.08) !important;
+}
+
+.formRow {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.taskInput {
+    flex: 2;
+    min-width: 200px;
+}
+
+.descInput {
+    flex: 2;
+    min-width: 200px;
+}
+
+.prioritySelect {
+    flex: 1;
+    min-width: 120px;
+}
+
+.dateInput {
+    flex: 1;
+    min-width: 150px;
+}
+
+.addButton {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    color: white !important;
+    font-weight: 600 !important;
+    padding: 8px 25px !important;
+    border-radius: 10px !important;
+    text-transform: none !important;
+    transition: transform 0.2s !important;
+}
+
+.addButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4) !important;
+}
+
+.cancelButton {
+    border-radius: 10px !important;
+    text-transform: none !important;
+    font-weight: 600 !important;
+}
+
+/* Filter Row */
+.filterRow {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.searchInput {
+    flex: 2;
+    min-width: 250px;
+}
+
+.filterSelect {
+    flex: 1;
+    min-width: 150px;
+}
+
+.searchIcon {
+    color: #667eea;
+    margin-right: 8px;
+}
+
+/* Tasks Area */
+.bodyArea {
+    max-height: 600px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.bodyArea::-webkit-scrollbar {
+    width: 8px;
+}
+
+.bodyArea::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.bodyArea::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 10px;
+}
+
+.task_container {
+    display: flex;
+    align-items: center;
+    padding: 15px !important;
+    margin-bottom: 15px !important;
+    border-radius: 12px !important;
+    transition: all 0.3s ease !important;
+    border-left: 4px solid transparent !important;
+    animation: slideIn 0.3s ease;
+    background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02)) !important;
+    color: #fff;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.task_container:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+.task_container.completed {
+    opacity: 0.6;
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)) !important;
+}
+
+.task_container.priority-high {
+    border-left-color: #f5576c !important;
+}
+
+.task_container.priority-medium {
+    border-left-color: #feca57 !important;
+}
+
+.task_container.priority-low {
+    border-left-color: #48dbfb !important;
+}
+
+.taskCheckbox {
+    margin-right: 15px !important;
+}
+
+.taskContent {
+    flex: 1;
+}
+
+.taskTitle {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.line_through {
+    text-decoration: line-through;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.taskDescription {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 5px;
+}
+
+.taskDueDate {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+}
+
+.priorityChip {
+    text-transform: uppercase !important;
+    font-weight: 600 !important;
+    font-size: 0.7rem !important;
+}
+
+.priorityChip.priority-high {
+    background: #f5576c !important;
+    color: white !important;
+}
+
+.priorityChip.priority-medium {
+    background: #feca57 !important;
+    color: #2c3e50 !important;
+}
+
+.priorityChip.priority-low {
+    background: #48dbfb !important;
+    color: white !important;
+}
+
+.taskActions {
+    display: flex;
+    gap: 5px;
+}
+
+.editButton {
+    color: #667eea !important;
+}
+
+.deleteButton {
+    color: #f5576c !important;
+}
+
+.emptyState {
+    text-align: center;
+    padding: 60px 20px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+/* Material-UI Input Overrides for White Text */
+.MuiInputBase-input {
+    color: white !important;
+}
+
+.MuiInputLabel-root {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.MuiInputLabel-root.Mui-focused {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.MuiInput-underline:before {
+    border-bottom-color: rgba(255, 255, 255, 0.42) !important;
+}
+
+.MuiInput-underline:hover:not(.Mui-disabled):before {
+    border-bottom-color: rgba(255, 255, 255, 0.87) !important;
+}
+
+.MuiInput-underline:after {
+    border-bottom-color: white !important;
+}
+
+.MuiSelect-icon {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.MuiMenuItem-root {
+    color: #333 !important;
+}
+
+.centerRow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    .heading {
+        font-size: 2rem;
+    }
+
+    .formRow {
+        flex-direction: column;
+    }
+
+    .taskInput,
+    .descInput,
+    .prioritySelect,
+    .dateInput {
+        width: 100%;
+    }
+
+    .task_container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .taskActions {
+        width: 100%;
+        justify-content: flex-end;
+        margin-top: 10px;
+    }
+}

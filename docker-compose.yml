@@ -1,0 +1,62 @@
+version: '3.8'
+
+services:
+  # MongoDB Database
+  mongodb:
+    image: mongo:5.0
+    container_name: mongodb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password123
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - three-tier-network
+
+  # Backend API (Node.js)
+  backend:
+    build:
+      context: ./app/backend
+      dockerfile: Dockerfile
+    container_name: backend
+    environment:
+      MONGO_CONN_STR: mongodb://admin:password123@mongodb:27017/taskdb?authSource=admin
+      USE_DB_AUTH: "true"
+      MONGO_USERNAME: admin
+      MONGO_PASSWORD: password123
+      PORT: 8080
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mongodb
+    networks:
+      - three-tier-network
+
+  # Frontend (React)
+  frontend:
+    build:
+      context: ./app/frontend
+      dockerfile: Dockerfile
+    container_name: frontend
+    environment:
+      REACT_APP_BACKEND_URL: http://localhost:8080/api/tasks
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    networks:
+      - three-tier-network
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./app/frontend:/usr/src/app:cached
+      - /usr/src/app/node_modules
+
+networks:
+  three-tier-network:
+    driver: bridge
+
+volumes:
+  mongodb_data:

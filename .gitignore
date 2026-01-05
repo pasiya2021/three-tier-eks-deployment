@@ -1,0 +1,32 @@
+﻿# Terraform
+terraform/.terraform/
+terraform/.terraform.lock.hcl
+terraform/terraform.tfstate
+terraform/terraform.tfstate.backup
+**/.terraform/
+**/terraform.tfstate*
+
+# Node
+node_modules/
+**/node_modules/
+package-lock.json
+
+# Build
+build/
+dist/
+**/build/
+**/dist/
+
+# Secrets
+.env
+*.pem
+*.key
+
+# IDE & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
