@@ -428,9 +428,9 @@ This project is open source and available under the [MIT License](LICENSE).
 
 **Pasindu Malinga**
 
-- GitHub: [@pasindumalinga](https://github.com/pasindumalinga)
+- GitHub: [@pasindumalinga](https://github.com/pasiya2021)
 - Docker Hub: [@pasindumalinga](https://hub.docker.com/u/pasindumalinga)
-- LinkedIn: [Your LinkedIn Profile](https://linkedin.com/in/your-profile)
+- LinkedIn: [Your LinkedIn Profile](https://www.linkedin.com/in/pasindu-bandara-4b8b68368/)
 
 ## 🙏 Acknowledgments
 
